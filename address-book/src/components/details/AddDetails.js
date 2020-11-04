@@ -18,12 +18,18 @@ const onChange = e => setDetails({
     ...details, [e.target.name]: e.target.value
 });
 
+const onSubmit = e => {
+    e.preventDefault();
+    console.log('Submit Clicked!');
+    console.log(details);
+}
+
     return (
         <Fragment>
             <Row>
                 <h2>NEW CONTACTs</h2>
             </Row>
-            <Form>
+            <Form onSubmit= {e => onSubmit(e)}>
                 <Form.Group controlId='lastName'>
                     <Form.Label>Last Name: </Form.Label>
                     <Form.Control
@@ -74,7 +80,7 @@ const onChange = e => setDetails({
                         onChange={e => onChange(e)}
                         />
                 </Form.Group>
-                <Link to='/'>Submit</Link>
+                <Button type='submit'>Submit</Button>
             </Form>
         </Fragment>
     )
