@@ -1,14 +1,13 @@
-<script>
+
   // Your web app's Firebase configuration
   var firebaseConfig = {
-    apiKey: "AIzaSyATIsCPyS-fwHNeSg9npUhrNgNBJF_DN3g",
-    authDomain: "addressbook-5a4a4.firebaseapp.com",
-    databaseURL: "https://addressbook-5a4a4.firebaseio.com",
-    projectId: "addressbook-5a4a4",
-    storageBucket: "addressbook-5a4a4.appspot.com",
-    messagingSenderId: "782769281776",
-    appId: "1:782769281776:web:f326bef4a8287392348035"
+    apiKey: REACT_APP_FIREBASE_KEY,
+    authDomain: REACT_APP_DOMAIN,
+    databaseURL: REACT_APP_DATABASE,
+    projectId: REACT_APP_PROJECT_ID,
+    storageBucket: REACT_APP_STORAGE_BUCKET,
+    messagingSenderId: REACT_APP_SENDER_ID,
+    appId: REACT_APP_APP_ID
   };
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
-</script>
