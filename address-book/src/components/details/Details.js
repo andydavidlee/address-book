@@ -1,16 +1,18 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { Table } from 'react-bootstrap';
+// Import redux functions
+import { compose } from 'redux';
+import { withFirestore, useFirestoreConnect } from "react-redux-firebase";
+import { connect } from 'react-redux';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Details = props => {
 
-    const details = [
-       { id: '1', lastName: 'Lee', firstName: 'Andrew', phone: '0423807286', email: 'andrewd_lee@outlook.com', address: '6/60 Strettle Street, Northcote VIC 3070'},
-       { id: '2', lastName: 'King', firstName: 'Andrew', phone: '0423807286', email: 'andrewd_lee@outlook.com', address: '6/60 Strettle Street, Northcote VIC 3070'},
-       { id: '3', lastName: 'Severus', firstName: 'Andrew', phone: '0423807286', email: 'andrewd_lee@outlook.com', address: '6/60 Strettle Street, Northcote VIC 3070'}
-    ]
+    // database listener pass in the collection we are listening to.
+
+    useFirestoreConnect('details');
 
     return (
        <Fragment>

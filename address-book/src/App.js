@@ -1,5 +1,11 @@
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, matchPath, Route, Switch } from 'react-router-dom';
 import { Container } from 'react-bootstrap';
+
+// redux imports
+import { Provider } from 'react-redux';
+import { ReactReduxFirebaseProvider } from 'react-redux-firebase';
+import store from './store';
+import rrfProps from './config/rrfProps';
 
 // Fontawesome
 import { library } from '@fortawesome/fontawesome-svg-core';
@@ -15,6 +21,8 @@ const App = () => {
   // Creating the fontawesome library
   library.add(faTimes, faEdit, faPlus);
   return (
+    <Provider store={store}>
+      <ReactReduxFirebaseProvider {...rrfProps}>
     <Router>
       <Container>
         <Switch>
@@ -25,6 +33,8 @@ const App = () => {
         </Switch>
       </Container>
     </Router>
+    </ReactReduxFirebaseProvider>
+    </Provider>
   );
 }
 
