@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, matchPath, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Container } from 'react-bootstrap';
 
 // redux imports

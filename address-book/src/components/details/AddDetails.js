@@ -1,10 +1,13 @@
 import React, { useState, Fragment } from 'react';
-import { Link } from 'react-router-dom';
-import { Row, Form, Col, Button } from 'react-bootstrap';
+// import { Link } from 'react-router-dom';
+import { Row, Form, Button } from 'react-bootstrap';
+import { useHistory } from 'react-router-dom';
+import { compose } from 'redux';
+import { withFirestore, useFirestoreConnect, useFirestore} from 'react-redux-firebase';
 
-const AddDetails = () => {
+const AddDetails = (props, { details }) => {
 
-const [details, setDetails ] = useState ({
+const [contactDetails, setContactDetails ] = useState ({
     lastName: '', 
     firstName: '', 
     phone: '', 
@@ -12,16 +15,30 @@ const [details, setDetails ] = useState ({
     address: ''
 });
 
-const { lastName, firstName, phone, email, address} = setDetails;
+const { lastName, firstName, phone, email, address} = contactDetails;
 
-const onChange = e => setDetails({
-    ...details, [e.target.name]: e.target.value
+// add in database config and listeners
+const firestore = useFirestore();
+useFirestoreConnect('details');
+const history = useHistory();
+
+const onChange = e => setContactDetails({
+    ...contactDetails, [e.target.name]: e.target.value
 });
 
 const onSubmit = e => {
     e.preventDefault();
-    console.log('Submit Clicked!');
-    console.log(details);
+    // console.log('Submit Clicked!');
+    // console.log(contactDetails);
+    const newDetail = contactDetails;
+
+
+// add new client to the database
+firestore.collection('details').add(newDetail)
+    .then(() => console.log('Contact Details added!'));
+    // redirect the user to the home page
+    history.push('/');
+
 }
 
     return (
@@ -86,4 +103,8 @@ const onSubmit = e => {
     )
 }
 
-export default AddDetails
+const enhance = compose(
+    withFirestore
+);
+
+export default enhance(AddDetails);

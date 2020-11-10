@@ -7,7 +7,7 @@ import rootReducer from './reducers/rootReducer';
 // initial this.state
 
 const initialState = {};
-const middleware = { thunk };
+const middleware = [ thunk ];
 
 // create store
 const store = createStore(
