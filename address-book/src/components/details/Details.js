@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { Table, Button } from 'react-bootstrap';
-import { Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 // Import redux functions
 import { compose } from 'redux';
@@ -10,27 +10,25 @@ import { connect } from 'react-redux';
 
 // fontawesome icons
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// spinning component
+import Spinner from '../layout/Spinner';
 
 const Details = ({ details }) => {
 
     // database listener pass in the collection we are listening to.
-    // const firestore = useFirestore();
+    const firestore = useFirestore();
     useFirestoreConnect('details');
-    // const history = useHistory();
-    // const id = props.match.params.id; // I think it will work if I can somehow point this to the id on the tables row.
 
-    const onDeleteClick = (e) => {
-        console.log('Ooooops delete');
-    //     // delete the client from the database
-    //     firestore.collection('details').doc(id).delete()
-    //     .then(() => console.log("Contact details deleted"));
-    //     // // redirect to the dashboard
-    //     history.push('/');
+    // To delete a document from the database by its id
+    const onDeleteClick = (e, id) => {
+    // delete the detail from the database
+        firestore.collection('details').doc(id).delete()
+        .then(() => alert("Contact details deleted"));
     }
 
   
 
-    // if (details) {
+    if (details) {
         return (
             <Fragment>
                 <div className='text-center'>
@@ -57,7 +55,7 @@ const Details = ({ details }) => {
                          <td>{detail.address}</td>
                          <td>
                          <Button><Link to={`/detail/edit/${detail.id}`}><FontAwesomeIcon icon='edit' /></Link></Button> {'   '}
-                         <Button onClick={e => onDeleteClick(e)}><FontAwesomeIcon icon='times' /></Button>
+                         <Button onClick={e => onDeleteClick(e, detail.id)}><FontAwesomeIcon icon='times' /></Button>
                          </td>
                          </tr>
                        ))}
@@ -65,9 +63,9 @@ const Details = ({ details }) => {
                </Table>
             </Fragment>
          )     
-    // } else {
-    //     console.log ('not connected');
-    // }
+    } else {
+       return <Spinner />;
+    }
         
 }
 

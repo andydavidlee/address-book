@@ -29,20 +29,20 @@ useFirestoreConnect(props => [
 
 const {details} = props;
 
-// useEffect(() => {
-//     // checking for there are contact details
-//     if (details) {
-//         // pulling out the wanted details
-//         const detail = details[0];
-//         setContactDetails({
-//             lastName: detail.lastName, 
-//             firstName: detail.firstName, 
-//             phone: detail.phone, 
-//             email: detail.email, 
-//             address: detail.address
-//         }, [details])
-//     }
-// })
+useEffect(() => {
+    // checking for there are contact details
+    if (details) {
+        // pulling out the wanted details
+        const detail = details[0];
+        setContactDetails({
+            lastName: detail.lastName, 
+            firstName: detail.firstName, 
+            phone: detail.phone, 
+            email: detail.email, 
+            address: detail.address
+        }, [details])
+    }
+})
 
 const onSubmit = e => {
     e.preventDefault();
