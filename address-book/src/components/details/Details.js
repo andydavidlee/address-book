@@ -11,23 +11,26 @@ import { connect } from 'react-redux';
 // fontawesome icons
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-const Details = (props, { details }) => {
+const Details = ({ details }) => {
 
     // database listener pass in the collection we are listening to.
-    const firestore = useFirestore();
+    // const firestore = useFirestore();
     useFirestoreConnect('details');
-    const history = useHistory();
-    const id = props.match.params.id; // I think it will work if I can somehow point this to the id on the tables row.
+    // const history = useHistory();
+    // const id = props.match.params.id; // I think it will work if I can somehow point this to the id on the tables row.
 
     const onDeleteClick = (e) => {
         console.log('Ooooops delete');
-        // delete the client from the database
-        firestore.collection('details').doc(id).delete()
-        .then(() => console.log("Contact details deleted"));
-        // // redirect to the dashboard
-        history.push('/');
+    //     // delete the client from the database
+    //     firestore.collection('details').doc(id).delete()
+    //     .then(() => console.log("Contact details deleted"));
+    //     // // redirect to the dashboard
+    //     history.push('/');
     }
 
+  
+
+    // if (details) {
         return (
             <Fragment>
                 <div className='text-center'>
@@ -41,7 +44,7 @@ const Details = (props, { details }) => {
                            <th>Phone</th>
                            <th>Email</th>
                            <th>Address</th>
-                           <th><FontAwesomeIcon icon='plus' size='lg' /></th>          
+                           <th><Link to='detail/add'><FontAwesomeIcon icon='plus' size='lg' /></Link></th>          
                        </tr>
                    </thead>
                    <tbody>
@@ -62,6 +65,10 @@ const Details = (props, { details }) => {
                </Table>
             </Fragment>
          )     
+    // } else {
+    //     console.log ('not connected');
+    // }
+        
 }
 
 Details.propTypes = {

@@ -5,7 +5,7 @@ import { Container } from 'react-bootstrap';
 import { Provider } from 'react-redux';
 import { ReactReduxFirebaseProvider } from 'react-redux-firebase';
 import store from './store';
-import rrfProps from './config/rrfProps';
+import rrfProps from './components/config/rrfProps';
 
 // Fontawesome
 import { library } from '@fortawesome/fontawesome-svg-core';
