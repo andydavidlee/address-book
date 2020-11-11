@@ -26,8 +26,6 @@ const Details = ({ details }) => {
         .then(() => alert("Contact details deleted"));
     }
 
-  
-
     if (details) {
         return (
             <Fragment>

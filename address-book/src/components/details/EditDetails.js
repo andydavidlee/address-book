@@ -20,10 +20,12 @@ const id = props.match.params.id;
 const firestore = useFirestore();
 const history = useHistory();
 
+
+
 useFirestoreConnect(props => [
     { collection: 'details', doc: id}
 ], connect((state, props) => ({
-    clients: state.firestore.data.clients
+    details: state.firestore.data.details
 }))
 )
 
@@ -40,14 +42,23 @@ useEffect(() => {
             phone: detail.phone, 
             email: detail.email, 
             address: detail.address
-        }, [details])
+        })
     }
-})
+}, [details])
 
 const onSubmit = e => {
     e.preventDefault();
-    console.log('Submit - editclient')
+    console.log('Submit - edit detail');
+
+     // update our client in the database. 
+ firestore.collection('details').doc(id).update(contactDetails)
+ .then(() => console.log('Details  updated'));
+
+history.push('/');
 }
+
+
+
 
 const onChange = e => setContactDetails({
     ...contactDetails, [e.target.name]: e.target.value
@@ -56,7 +67,7 @@ const onChange = e => setContactDetails({
     return (
         <Fragment>
         <Row>
-        <h2>NEW CONTACTs</h2>
+        <h2>EDIT CONTACTs</h2>
     </Row>
     <Form onSubmit= {e => onSubmit(e)}>
         <Form.Group controlId='lastName'>
@@ -118,7 +129,7 @@ const onChange = e => setContactDetails({
 const enhance = compose(
     withFirestore,
     connect((state) => ({
-        details: state.firestore.ordered.clients
+        details: state.firestore.ordered.details
     }))
 );
 
