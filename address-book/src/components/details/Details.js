@@ -29,10 +29,10 @@ const Details = ({ details }) => {
     if (details) {
         return (
             <Fragment>
-                <div className='text-center'>
-                    <h1>CONTACTs</h1>
+                <div className='text-center text-white'>
+                    <h1 className='title'>CONTACTs</h1>
                 </div>
-               <Table striped>
+               <Table striped className='text-white grey'>
                    <thead className='thead-inverse'>
                        <tr>
                            <th>Last Name</th>
@@ -40,7 +40,7 @@ const Details = ({ details }) => {
                            <th>Phone</th>
                            <th>Email</th>
                            <th>Address</th>
-                           <th><Link to='detail/add'><FontAwesomeIcon icon='plus' size='lg' /></Link></th>          
+                           <th><Link to='detail/add'><FontAwesomeIcon className='text-white' icon='plus' size='lg' /></Link></th>          
                        </tr>
                    </thead>
                    <tbody>
@@ -52,8 +52,8 @@ const Details = ({ details }) => {
                          <td>{detail.email}</td>
                          <td>{detail.address}</td>
                          <td>
-                         <Button><Link to={`/detail/edit/${detail.id}`}><FontAwesomeIcon icon='edit' /></Link></Button> {'   '}
-                         <Button onClick={e => onDeleteClick(e, detail.id)}><FontAwesomeIcon icon='times' /></Button>
+                         <Link to={`/detail/edit/${detail.id}`}><FontAwesomeIcon className='text-white' icon='edit' /></Link>{'   '}
+                         <Link onClick={e => onDeleteClick(e, detail.id)}><FontAwesomeIcon icon='times' className='text-white' /></Link>
                          </td>
                          </tr>
                        ))}

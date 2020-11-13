@@ -21,6 +21,7 @@ const App = () => {
   // Creating the fontawesome library
   library.add(faTimes, faEdit, faPlus);
   return (
+  
     <Provider store={store}>
       <ReactReduxFirebaseProvider {...rrfProps}>
     <Router>
@@ -35,6 +36,7 @@ const App = () => {
     </Router>
     </ReactReduxFirebaseProvider>
     </Provider>
+ 
   );
 }
 
