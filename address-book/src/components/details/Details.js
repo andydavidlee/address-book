@@ -16,7 +16,7 @@ import Spinner from '../layout/Spinner';
 import Chevron from '../layout/Chevron';
 
 // Search
-import Search from '../layout/Search';
+import Filter from '../layout/Filter';
 
 
 const Details = ({ details }) => {
@@ -60,20 +60,10 @@ const Details = ({ details }) => {
                     </Row>
 
               </div>
-              <Search />
-                {/* <Row>
-                    <Col md={6}>
-                        <Form.Group controlId='search' className='form-inline'>
-                            <Form.Label className= 'text-white mr-3'>Search: </Form.Label>
-                                <Form.Control
-                                    className='inputcolour'
-                                    size= '1'
-                                    type= 'text'
-                                    name= 'search'
-                                    />
-                        </Form.Group>   
-                    </Col>
-                </Row> */}
+               
+                <div>
+                <Filter />
+                </div>
                 <div style={{zindex:100}}>
                 <Table striped className='text-white grey rounded'>
                    <thead className='thead-inverse'>
