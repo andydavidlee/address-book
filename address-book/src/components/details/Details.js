@@ -15,6 +15,9 @@ import Spinner from '../layout/Spinner';
 // Chevron Component
 import Chevron from '../layout/Chevron';
 
+// Search
+import Search from '../layout/Search';
+
 
 const Details = ({ details }) => {
 
@@ -32,7 +35,16 @@ const Details = ({ details }) => {
     if (details) {
         return (
             <Fragment>
-                <Row>
+              <div className='pagetitle'>
+              <Row>
+                    <Col>
+                    <h1 className='title'>CONTACTs</h1>
+                    </Col>
+                </Row>
+              </div>
+                <div className='chevronbackground'>
+                    
+              <Row>
                     <Col sm={6}>
                         <div className='chevrondisplayone'>
                         <Chevron />
@@ -40,13 +52,16 @@ const Details = ({ details }) => {
                    
                     </Col>
                     <Col sm={6}>
-                    <Chevron className='chevrondisplaytwo'/>
+                        <div className='chevrondisplaytwo'>
+                        <Chevron />
+                        </div>
+                   
                     </Col>
-                </Row>
-                <div className='text-center text-white'>
-                    <h1 className='title'>CONTACTs</h1>
-                </div>
-                <Row>
+                    </Row>
+
+              </div>
+              <Search />
+                {/* <Row>
                     <Col md={6}>
                         <Form.Group controlId='search' className='form-inline'>
                             <Form.Label className= 'text-white mr-3'>Search: </Form.Label>
@@ -58,8 +73,9 @@ const Details = ({ details }) => {
                                     />
                         </Form.Group>   
                     </Col>
-                </Row>
-               <Table striped className='text-white grey rounded'>
+                </Row> */}
+                <div style={{zindex:100}}>
+                <Table striped className='text-white grey rounded'>
                    <thead className='thead-inverse'>
                        <tr>
                            <th>Last Name</th>
@@ -86,6 +102,8 @@ const Details = ({ details }) => {
                        ))}
                    </tbody>
                </Table>
+                </div>
+             
             </Fragment>
          )     
     } else {

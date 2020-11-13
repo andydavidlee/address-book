@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Container } from 'react-bootstrap';
 
@@ -18,6 +19,8 @@ import AddDetails from './components/details/AddDetails';
 import EditDetails from './components/details/EditDetails';
 
 const App = () => {
+
+  const [ query, setQuery ] = useState('');
   // Creating the fontawesome library
   library.add(faTimes, faEdit, faPlus);
   return (

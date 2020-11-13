@@ -5,7 +5,7 @@ const Chevron = () => {
   return (
     <div>
       <img src={chevron} alt="decoration" 
-        style={{ width: '500px', display: 'block', position: 'absolute' }}
+        style={{ width: '500px', display: 'block', position: 'absolute', zindex: '1' }}
       />
     </div>
   )
