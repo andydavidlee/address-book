@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import { Table, Button } from 'react-bootstrap';
+import { Table, Form, Row, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 // Import redux functions
@@ -12,6 +12,9 @@ import { connect } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // spinning component
 import Spinner from '../layout/Spinner';
+// Chevron Component
+import Chevron from '../layout/Chevron';
+
 
 const Details = ({ details }) => {
 
@@ -29,10 +32,34 @@ const Details = ({ details }) => {
     if (details) {
         return (
             <Fragment>
+                <Row>
+                    <Col sm={6}>
+                        <div className='chevrondisplayone'>
+                        <Chevron />
+                        </div>
+                   
+                    </Col>
+                    <Col sm={6}>
+                    <Chevron className='chevrondisplaytwo'/>
+                    </Col>
+                </Row>
                 <div className='text-center text-white'>
                     <h1 className='title'>CONTACTs</h1>
                 </div>
-               <Table striped className='text-white grey'>
+                <Row>
+                    <Col md={6}>
+                        <Form.Group controlId='search' className='form-inline'>
+                            <Form.Label className= 'text-white mr-3'>Search: </Form.Label>
+                                <Form.Control
+                                    className='inputcolour'
+                                    size= '1'
+                                    type= 'text'
+                                    name= 'search'
+                                    />
+                        </Form.Group>   
+                    </Col>
+                </Row>
+               <Table striped className='text-white grey rounded'>
                    <thead className='thead-inverse'>
                        <tr>
                            <th>Last Name</th>
