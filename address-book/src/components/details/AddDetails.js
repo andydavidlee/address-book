@@ -1,6 +1,8 @@
+// 
+
 import React, { useState, Fragment } from 'react';
 // import { Link } from 'react-router-dom';
-import { Row, Form, Button } from 'react-bootstrap';
+import { Row, Form, Button, Col, Card } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
 import { compose } from 'redux';
 import { withFirestore, useFirestoreConnect, useFirestore} from 'react-redux-firebase';
@@ -44,12 +46,16 @@ firestore.collection('details').add(newDetail)
     return (
         <Fragment>
             <Row>
-                <h2>NEW CONTACTs</h2>
-            </Row>
+                <Col md={8} className="mx-auto">
+                <Card className="grey">
+          <Card.Body>
+                <h2 className="text-center title">NEW CONTACTs</h2>
+         
             <Form onSubmit= {e => onSubmit(e)}>
                 <Form.Group controlId='lastName'>
-                    <Form.Label>Last Name: </Form.Label>
+                    <Form.Label className='text-white'>Last Name: </Form.Label>
                     <Form.Control
+                    className="inputcolour"
                         type= 'text'
                         name= 'lastName'
                         value= {lastName}
@@ -58,8 +64,9 @@ firestore.collection('details').add(newDetail)
                         />
                 </Form.Group>
                 <Form.Group controlId='firstName'>
-                <Form.Label>First Name: </Form.Label>
+                <Form.Label className='text-white'>First Name: </Form.Label>
                     <Form.Control
+                    className="inputcolour"
                         type= 'text'
                         name= 'firstName'
                         value= {firstName}
@@ -68,8 +75,9 @@ firestore.collection('details').add(newDetail)
                         />
                 </Form.Group>
                 <Form.Group controlId='phone'>
-                <Form.Label>Phone: </Form.Label>
+                <Form.Label className='text-white'>Phone: </Form.Label>
                     <Form.Control
+                    className="inputcolour"
                         type= 'text'
                         name= 'phone'
                         value= {phone}
@@ -78,8 +86,9 @@ firestore.collection('details').add(newDetail)
                         />
                 </Form.Group>
                 <Form.Group controlId='email'>
-                <Form.Label>Email: </Form.Label>
+                <Form.Label className='text-white'>Email: </Form.Label>
                     <Form.Control
+                    className="inputcolour"
                         type= 'email'
                         name= 'email'
                         value= {email}
@@ -88,8 +97,9 @@ firestore.collection('details').add(newDetail)
                         />
                 </Form.Group>
                 <Form.Group controlId='address'>
-                <Form.Label>Address: </Form.Label>
+                <Form.Label className='text-white'>Address: </Form.Label>
                     <Form.Control
+                    className="inputcolour"
                         type= 'text'
                         name= 'address'
                         value= {address}
@@ -97,8 +107,17 @@ firestore.collection('details').add(newDetail)
                         onChange={e => onChange(e)}
                         />
                 </Form.Group>
-                <Button type='submit'>Submit</Button>
+                <Row>
+                    <Col md={2} className="mx-auto">
+                    <Button className="center" type='submit'>Submit</Button>
+                    </Col>
+                </Row>
+                
             </Form>
+            </Card.Body>
+            </Card>
+            </Col>
+            </Row>
         </Fragment>
     )
 }

@@ -1,6 +1,6 @@
 import React, { Fragment, useState, useEffect} from 'react';
 import { useHistory } from 'react-router-dom';
-import { Form, Button, Row } from 'react-bootstrap';
+import { Form, Button, Row, Col, Card } from 'react-bootstrap';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import {withFirestore, useFirestoreConnect, useFirestore } from 'react-redux-firebase';
@@ -67,12 +67,16 @@ const onChange = e => setContactDetails({
     return (
         <Fragment>
         <Row>
-        <h2>EDIT CONTACTs</h2>
-    </Row>
+            <Col md={8} className="mx-auto">
+            <Card className="grey">
+          <Card.Body>
+        <h2 className="text-center title">EDIT CONTACTs</h2>
+       
     <Form onSubmit= {e => onSubmit(e)}>
         <Form.Group controlId='lastName'>
-            <Form.Label>Last Name: </Form.Label>
+            <Form.Label className="text-white">Last Name: </Form.Label>
             <Form.Control
+            className="inputcolour"
                 type= 'text'
                 name= 'lastName'
                 value= {lastName}
@@ -81,8 +85,9 @@ const onChange = e => setContactDetails({
                 />
         </Form.Group>
         <Form.Group controlId='firstName'>
-        <Form.Label>First Name: </Form.Label>
+        <Form.Label className="text-white">First Name: </Form.Label>
             <Form.Control
+            className="inputcolour"
                 type= 'text'
                 name= 'firstName'
                 value= {firstName}
@@ -91,8 +96,9 @@ const onChange = e => setContactDetails({
                 />
         </Form.Group>
         <Form.Group controlId='phone'>
-        <Form.Label>Phone: </Form.Label>
+        <Form.Label className="text-white">Phone: </Form.Label>
             <Form.Control
+            className="inputcolour"
                 type= 'text'
                 name= 'phone'
                 value= {phone}
@@ -101,8 +107,9 @@ const onChange = e => setContactDetails({
                 />
         </Form.Group>
         <Form.Group controlId='email'>
-        <Form.Label>Email: </Form.Label>
+        <Form.Label className="text-white">Email: </Form.Label>
             <Form.Control
+            className="inputcolour"
                 type= 'email'
                 name= 'email'
                 value= {email}
@@ -111,8 +118,9 @@ const onChange = e => setContactDetails({
                 />
         </Form.Group>
         <Form.Group controlId='address'>
-        <Form.Label>Address: </Form.Label>
+        <Form.Label className="text-white">Address: </Form.Label>
             <Form.Control
+            className="inputcolour"
                 type= 'text'
                 name= 'address'
                 value= {address}
@@ -120,8 +128,16 @@ const onChange = e => setContactDetails({
                 onChange={e => onChange(e)}
                 />
         </Form.Group>
-        <Button type='submit'>Submit</Button>
+            <Row>
+                    <Col md={2} className="mx-auto">
+                    <Button className="center" type='submit'>Submit</Button>
+                    </Col>
+                </Row>
     </Form>
+    </Card.Body>
+    </Card>
+    </Col>
+    </Row>
 </Fragment>
     )
 }

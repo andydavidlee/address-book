@@ -19,7 +19,8 @@ import Chevron from '../layout/Chevron';
 const Details = ({ details }) => {
 
     const [ search, setSearch, ] = useState('');
-    const [ filteredDetails, setFilteredDetails]= useState([]);
+    // const [ filteredDetails, setFilteredDetails]= useState([]);
+
 
     // database listener pass in the collection we are listening to.
     const firestore = useFirestore();
@@ -32,13 +33,13 @@ const Details = ({ details }) => {
         .then(() => alert("Contact details deleted"));
     }
 
-    useEffect(() => {
-        setFilteredDetails(
-            details.filter( (detail) => {
-                return detail.lastName.toLowerCase().includes( search.toLowerCase())
-            })
-        )
-    }, [search, details])
+    // useEffect(() => {
+    //     setFilteredDetails(
+    //         details.filter( (detail) => {
+    //             return detail.lastName.toLowerCase().includes( search.toLowerCase())
+    //         })
+    //     )
+    // }, [search, details])
 
     if (details) {
         return (

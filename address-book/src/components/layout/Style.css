@@ -7,7 +7,7 @@
 }
 
 .title {
-    position: absolute;
+    position: relative;
     color: #b72323;
     font-size: 12rem;
     font-family: dharma-gothic-c, sans-serif;
@@ -35,7 +35,7 @@ th {
   .chevrondisplaytwo {
     -webkit-transform-origin: right top;
     -webkit-transform:rotate(90deg);
-    margin-top: 535px;
+    margin-top: 500px;
   }
 
   .pagetitle {
@@ -44,4 +44,15 @@ th {
 
   .chevronbackground {
       z-index: 100;
+  }
+
+  .btn {
+    background-color: transparent;
+    border: none;
+  }
+
+  .center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
