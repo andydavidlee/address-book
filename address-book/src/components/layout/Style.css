@@ -8,6 +8,8 @@
 
 .title {
     position: relative;
+    margin: auto;
+    text-align: center;
     color: #b72323;
     font-size: 12rem;
     font-family: dharma-gothic-c, sans-serif;
@@ -26,24 +28,10 @@ th {
     margin-right:15px;
   }
 
-  .chevrondisplayone {
-    -webkit-transform-origin: left top;
-    -webkit-transform:rotate(-90deg);
-    margin-top: 500px;
-  }
-
-  .chevrondisplaytwo {
-    -webkit-transform-origin: right top;
-    -webkit-transform:rotate(90deg);
-    margin-top: 500px;
-  }
-
-  .pagetitle {
-      z-index: 1000;
-  }
-
-  .chevronbackground {
-      z-index: 100;
+  .chevron {
+    position: absolute;
+    width: 100%;
+    z-index: -10;
   }
 
   .btn {

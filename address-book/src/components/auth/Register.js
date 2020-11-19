@@ -1,4 +1,4 @@
-// login component
+// register component
 
 // imports
 import React, { useState } from 'react';
@@ -8,37 +8,30 @@ import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { withFirestore} from 'react-redux-firebase';
 
-
-const Login = ({ firebase }) => {
-  const [ loginData, setLoginData ] = useState ({
+const Register = ({firebase}) => {
+  const [ registrationData, setRegistrationData ] = useState ({
     email: '',
     password: ''
   });
   
-  const { email, password } = loginData;
+  const { email, password } = registrationData;
+
   const history = useHistory();
   
-  const onChange = e => setLoginData({
-    ...loginData, [e.target.name]: e.target.value
+  const onChange = e => setRegistrationData({
+    ...registrationData, [e.target.name]: e.target.value
   });
   
   const onSubmit = e => {
     e.preventDefault();
-    console.log('Submit - auth');
-    // authenticating with firebase - using email and password
-    firebase.auth().signInWithEmailAndPassword(email, password)
-      .then( res => {
-        // compares email and password on database, if correct loads the home page
-        if (res.user ) console.log('logged in');
-        history.push('/');
-      })
-      // if email and password incorrect, alerts the user
-      .catch( e => {
-        alert(e.message);
-      })
+
+
+   // add new client to the database
+firebase.auth().createUserWithEmailAndPassword(email, password)
+.then(() => alert('Contact Details added!'),
+// redirect the user to the home page
+history.push('/'));
   }
-  
-  // Browser
   
   return (
     <Row>
@@ -46,7 +39,7 @@ const Login = ({ firebase }) => {
         <Card className="grey">
           <Card.Body>
             <h1 className='title text-center pb-4, pt-3'>
-             LOGIn
+             REGISTEr
             </h1>
             <Form onSubmit={e => onSubmit(e)}>
               <Form.Group controlId="email">
@@ -80,6 +73,7 @@ const Login = ({ firebase }) => {
   )
 }
 
+
 const enhance = compose(
   withFirestore,
   connect((state) => ({
@@ -88,4 +82,4 @@ const enhance = compose(
   }))
 )
 
-export default enhance(Login);
+export default enhance(Register);

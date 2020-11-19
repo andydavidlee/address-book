@@ -1,3 +1,5 @@
+// Details component
+
 import React, { Fragment, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Table, Form, Row, Col } from 'react-bootstrap';
@@ -12,8 +14,6 @@ import { connect } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // spinning component
 import Spinner from '../layout/Spinner';
-// Chevron Component
-import Chevron from '../layout/Chevron';
 
 
 const Details = ({ details }) => {
@@ -50,24 +50,6 @@ const Details = ({ details }) => {
                     <h1 className='title'>CONTACTs</h1>
                     </Col>
                 </Row>
-              </div>
-                <div className='chevronbackground'>
-                    
-              <Row>
-                    <Col sm={6}>
-                        <div className='chevrondisplayone'>
-                        <Chevron />
-                        </div>
-                   
-                    </Col>
-                    <Col sm={6}>
-                        <div className='chevrondisplaytwo'>
-                        <Chevron />
-                        </div>
-                   
-                    </Col>
-                    </Row>
-
               </div>
                
                 <Form className='text-white'>

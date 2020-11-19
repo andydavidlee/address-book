@@ -18,7 +18,8 @@ import Dashboard from './components/layout/Dashboard';
 import Details from './components/details/Details';
 import AddDetails from './components/details/AddDetails';
 import EditDetails from './components/details/EditDetails';
-import Login from './components/auth/Login'
+import Login from './components/auth/Login';
+import Register from './components/auth/Register';
 
 const App = () => {
 
@@ -36,6 +37,7 @@ const App = () => {
           <Route exact path='/detail/:id' component={Details} />
           <Route exact path='/detail/edit/:id' component={EditDetails} />
           <Route exact path='/login' component={Login} />
+          <Route exact path='/Register' component={Register} />
         </Switch>
       </Container>
     </Router>

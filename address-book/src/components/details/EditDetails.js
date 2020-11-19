@@ -1,3 +1,5 @@
+// edit component
+
 import React, { Fragment, useState, useEffect} from 'react';
 import { useHistory } from 'react-router-dom';
 import { Form, Button, Row, Col, Card } from 'react-bootstrap';
@@ -7,6 +9,7 @@ import {withFirestore, useFirestoreConnect, useFirestore } from 'react-redux-fir
 
 const EditDetails = (props) => {
 
+// sets the initial state
 const [contactDetails, setContactDetails] = useState({
     lastName: '', 
     firstName: '', 
@@ -15,13 +18,14 @@ const [contactDetails, setContactDetails] = useState({
     address: ''
 });
 
+
 const { lastName, firstName, phone, email, address} = contactDetails;
 const id = props.match.params.id;
 const firestore = useFirestore();
 const history = useHistory();
 
 
-
+// access database and pulls the record by its id
 useFirestoreConnect(props => [
     { collection: 'details', doc: id}
 ], connect((state, props) => ({

@@ -29,7 +29,11 @@ const AppNavBar = ({ firebase, auth }) => {
   );
   
   const loggedOut = (
-    <Nav.Link href="/login">Login</Nav.Link>
+    <Fragment>
+        <Nav.Link href="/login">Login</Nav.Link>
+        <Nav.Link href="/Register">Register</Nav.Link>
+    </Fragment>
+  
   )
   
   return (
