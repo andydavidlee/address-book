@@ -30,8 +30,7 @@ const onChange = e => setContactDetails({
 
 const onSubmit = e => {
     e.preventDefault();
-    // console.log('Submit Clicked!');
-    // console.log(contactDetails);
+
     const newDetail = contactDetails;
 
 

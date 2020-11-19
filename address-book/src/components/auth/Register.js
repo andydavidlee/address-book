@@ -28,7 +28,7 @@ const Register = ({firebase}) => {
 
    // add new client to the database
 firebase.auth().createUserWithEmailAndPassword(email, password)
-.then(() => alert('Contact Details added!'),
+.then(() =>
 // redirect the user to the home page
 history.push('/'));
   }

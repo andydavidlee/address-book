@@ -1,6 +1,6 @@
 // Details component
 
-import React, { Fragment, useState, useEffect } from 'react';
+import React, { Fragment, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Table, Form, Row, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
@@ -19,8 +19,6 @@ import Spinner from '../layout/Spinner';
 const Details = ({ details }) => {
 
     const [ search, setSearch, ] = useState('');
-    // const [ filteredDetails, setFilteredDetails]= useState([]);
-
 
     // database listener pass in the collection we are listening to.
     const firestore = useFirestore();
@@ -32,14 +30,6 @@ const Details = ({ details }) => {
         firestore.collection('details').doc(id).delete()
         .then(() => alert("Contact details deleted"));
     }
-
-    // useEffect(() => {
-    //     setFilteredDetails(
-    //         details.filter( (detail) => {
-    //             return detail.lastName.toLowerCase().includes( search.toLowerCase())
-    //         })
-    //     )
-    // }, [search, details])
 
     if (details) {
         return (

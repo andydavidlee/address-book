@@ -24,12 +24,11 @@ const Login = ({ firebase }) => {
   
   const onSubmit = e => {
     e.preventDefault();
-    console.log('Submit - auth');
     // authenticating with firebase - using email and password
     firebase.auth().signInWithEmailAndPassword(email, password)
       .then( res => {
         // compares email and password on database, if correct loads the home page
-        if (res.user ) console.log('logged in');
+        if (res.user );
         history.push('/');
       })
       // if email and password incorrect, alerts the user
