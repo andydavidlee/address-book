@@ -1,0 +1,46 @@
+.black {
+    background-color: black;
+}
+
+.grey {
+    background-color: #1a1a1a;
+}
+
+.title {
+    position: relative;
+    margin: auto;
+    text-align: center;
+    color: #b72323;
+    font-size: 12rem;
+    font-family: dharma-gothic-c, sans-serif;
+}
+
+th {
+    font-family: 'Fjalla One', sans-serif;;
+}
+
+.inputcolour {
+    background-color: #2f2f2f;
+    border-color: #2f2f2f;
+}
+
+.label {
+    margin-right:15px;
+  }
+
+  .chevron {
+    position: absolute;
+    width: 100%;
+    z-index: -10;
+  }
+
+  .btn {
+    background-color: transparent;
+    border: none;
+  }
+
+  .center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
